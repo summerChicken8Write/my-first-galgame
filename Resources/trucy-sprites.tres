@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://x5p5toj21qt2"]
+
+[ext_resource type="Texture2D" uid="uid://i3foj7hc2wgx" path="res://Assets/sprites/trucy/idle/frame_apngframe1.png" id="1_olcak"]
+[ext_resource type="Texture2D" uid="uid://f21lp2ic1vdd" path="res://Assets/sprites/trucy/idle/frame_apngframe2.png" id="2_qlm8h"]
+[ext_resource type="Texture2D" uid="uid://bsr52s3w8udef" path="res://Assets/sprites/trucy/idle/frame_apngframe3.png" id="3_o1olw"]
+[ext_resource type="Texture2D" uid="uid://rxm5io3bntil" path="res://Assets/sprites/trucy/talking/frame_00.png" id="4_wjffk"]
+[ext_resource type="Texture2D" uid="uid://b5s2ss0tic0t7" path="res://Assets/sprites/trucy/talking/frame_01.png" id="5_uuuc8"]
+[ext_resource type="Texture2D" uid="uid://b8hckjehji4g2" path="res://Assets/sprites/trucy/talking/frame_02.png" id="6_byfqg"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_olcak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qlm8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o1olw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qlm8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_olcak")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_wjffk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uuuc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_byfqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uuuc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wjffk")
+}],
+"loop": 1,
+"name": &"talking",
+"speed": 7.0
+}]

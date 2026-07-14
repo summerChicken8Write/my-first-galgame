@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b8utcvh8wm1i1"]
+
+[ext_resource type="Theme" uid="uid://ccbrhakq6u2lf" path="res://Themes/DialogTheme.tres" id="1_6nctd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq5ud"]
+font_size = 24
+
+[node name="DialogUI" type="Control" unique_id=1039307889]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_6nctd")
+
+[node name="DialogBox" type="PanelContainer" parent="." unique_id=341531014]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogBox" unique_id=1625820993]
+layout_mode = 2
+bbcode_enabled = true
+text = "this is a [wave]xxx[/wave]"
+
+[node name="SpeakingBox" type="Control" parent="." unique_id=91158961]
+anchors_preset = 0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -150.0
+
+[node name="SpeakBox" type="Polygon2D" parent="SpeakingBox" unique_id=941182084]
+color = Color(0, 0, 0.6901961, 0.3137255)
+polygon = PackedVector2Array(0, 0, 200, 0, 240, 35, 200, 50, 0, 50)
+
+[node name="Label" type="Label" parent="SpeakingBox" unique_id=533191383]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -12.0
+offset_right = 132.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name
+"
+label_settings = SubResource("LabelSettings_wq5ud")
+vertical_alignment = 1
+
+[node name="cursor" type="Control" parent="." unique_id=2026761888]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="cursor" unique_id=77668838]
+position = Vector2(-20, -20)
+polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)

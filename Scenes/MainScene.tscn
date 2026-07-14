@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ceysat1u40kmd"]
+
+[ext_resource type="Script" uid="uid://cia4c2kel3o3o" path="res://Scripts/main_scene.gd" id="1_7rqgy"]
+[ext_resource type="Texture2D" uid="uid://c6ecddjd17dcj" path="res://Assets/images/title_screen.png" id="2_qxria"]
+[ext_resource type="PackedScene" uid="uid://7oynqu3438im" path="res://Scenes/Character.tscn" id="3_y4jh7"]
+[ext_resource type="PackedScene" uid="uid://b8utcvh8wm1i1" path="res://Scenes/DialogUI.tscn" id="4_q68mp"]
+
+[node name="MainScene" type="Node2D" unique_id=168513179]
+script = ExtResource("1_7rqgy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=791955892]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=214775828]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qxria")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=727251510]
+
+[node name="Character" parent="CanvasLayer2" unique_id=1459771100 instance=ExtResource("3_y4jh7")]
+unique_name_in_owner = true
+
+[node name="DialogUI" parent="CanvasLayer2" unique_id=1039307889 instance=ExtResource("4_q68mp")]
+unique_name_in_owner = true
