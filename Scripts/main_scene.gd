@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var character = %Character
 
-@onready var dialog_ui = %%DialogUI
+@onready var dialog_ui = %DialogUI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
