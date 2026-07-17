@@ -1,13 +1,9 @@
-extends Node2D
+extends Control
 
-@onready var character = %Character
+@onready var dialog_line = %DialogLine
 
-@onready var dialog_ui = %DialogUI
+@onready var speak_name = %SpeakerName
 
-const dialog_lines = Array[String] = [
-	"Phoenix:你好",
-	"Trucy:你也好"
-]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
