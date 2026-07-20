@@ -46,8 +46,14 @@ polygon = PackedVector2Array(0, 0, 200, 0, 240, 35, 200, 50, 0, 50)
 [node name="SpeakerName" type="Label" parent="SpeakingBox" unique_id=533191383]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 167.0
-offset_bottom = 71.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -35.5
+offset_right = 150.0
+offset_bottom = 35.5
+grow_vertical = 2
 text = "Name
 "
 label_settings = SubResource("LabelSettings_wq5ud")

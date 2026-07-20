@@ -58,7 +58,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_4goxl")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": ExtResource("7_mejud")
 }],
 "loop": 1,
@@ -94,5 +94,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"talking",
-"speed": 7.0
+"speed": 5.0
 }]

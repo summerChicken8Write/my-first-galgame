@@ -22,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_qlm8h")
 }, {
-"duration": 1.0,
+"duration": 10.0,
 "texture": ExtResource("1_olcak")
 }],
 "loop": 1,
@@ -47,5 +47,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"talking",
-"speed": 7.0
+"speed": 5.0
 }]
