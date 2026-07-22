@@ -32,6 +32,8 @@ unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "this is a [wave]xxx[/wave]"
+visible_characters = 30
+visible_ratio = 2.3076923
 
 [node name="SpeakingBox" type="Control" parent="." unique_id=91158961]
 anchors_preset = 0
