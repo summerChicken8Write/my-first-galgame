@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 					if NOT_SOUND_CHARS.has(current_char) and next_char == " ":
 						# 标点加空格代表一个短停顿，暂停提示音，避免连续播报标点。
 						text_blip_timer.stop()
-						sentence_pause_timer.stop()
+						sentence_pause_timer.start()
 				# 记录本帧已经显示到哪一个字符，供下一帧继续比较。
 				current_visible_characters = dialog_line.visible_characters
 		else:

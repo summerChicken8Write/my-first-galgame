@@ -22,9 +22,9 @@ const dialog_lines: Array[String] = [
 	# 第 1 条：Trucy 回应问候。
 	"Trucy:你也好！",
 	# 第 2 条：Apollo 对突然出现的两人感到困惑。
-	"Apollo:你俩谁啊？我认识你们吗？",
+	"Apollo:你俩谁啊？ 我认识你们吗？",
 	# 第 3 条：Phoenix 注意到 Apollo 准备离开。
-	"Phoenix:等等，你要去哪啊？",
+	"Phoenix:等等， 你要去哪啊？",
 	# 第 4 条：Trucy 用略带挑衅的语气回应。
 	"Trucy:管的着么！",
 	# 第 5 条：Apollo 因为被无视而提高语气。
@@ -32,9 +32,9 @@ const dialog_lines: Array[String] = [
 	# 第 6 条：Phoenix 吐槽 Apollo 的态度。
 	"Phoenix:你这个人怎么这样！",
 	# 第 7 条：Trucy 继续反击。
-	"Trucy:怎么？你不服气？",
+	"Trucy:怎么？ 你不服气？",
 	# 第 8 条：Apollo 的收尾长句。
-	"Apollo:都让开，我要开始说一大段废话辣，你们快跑啊，不然就跑不了辣，哈哈，污染你们的耳朵"
+	"Apollo:都让开， 我要开始说一大段废话辣， 你们快跑啊， 不然就跑不了辣， 哈哈， 污染你们的耳朵！"
 ]
 
 # Godot 生命周期函数：节点进入场景树后自动调用。
