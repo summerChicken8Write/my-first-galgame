@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ccbrhakq6u2lf" path="res://Themes/DialogTheme.tres" id="1_6nctd"]
 [ext_resource type="Script" uid="uid://besj1aprogsn2" path="res://Scripts/dialog_ui.gd" id="2_wq5ud"]
+[ext_resource type="Script" uid="uid://v83cerh5fce0" path="res://Scripts/text_blip_sound.gd" id="3_2pem5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wq5ud"]
 font_size = 24
@@ -16,6 +17,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_6nctd")
 script = ExtResource("2_wq5ud")
+
+[node name="SentencePauseTimer" type="Timer" parent="." unique_id=696787970]
+unique_name_in_owner = true
+wait_time = 0.35
+one_shot = true
+
+[node name="TextBlipTimer" type="Timer" parent="." unique_id=970950580]
+unique_name_in_owner = true
+wait_time = 0.09
+
+[node name="TextBlipSound" type="AudioStreamPlayer" parent="." unique_id=757798912]
+unique_name_in_owner = true
+script = ExtResource("3_2pem5")
 
 [node name="DialogBox" type="PanelContainer" parent="." unique_id=341531014]
 layout_mode = 1
@@ -32,6 +46,7 @@ unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "this is a [wave]xxx[/wave]"
+scroll_active = false
 visible_characters = 30
 visible_ratio = 2.3076923
 
@@ -68,11 +83,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -40.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="cursor" unique_id=77668838]
-position = Vector2(-20, -20)
 polygon = PackedVector2Array(0, 0, 40, 20, 0, 40)
