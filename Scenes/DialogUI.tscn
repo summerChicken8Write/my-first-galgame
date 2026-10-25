@@ -3,18 +3,31 @@
 [ext_resource type="Theme" uid="uid://ccbrhakq6u2lf" path="res://Themes/DialogTheme.tres" id="1_6nctd"]
 [ext_resource type="Script" uid="uid://besj1aprogsn2" path="res://Scripts/dialog_ui.gd" id="2_wq5ud"]
 [ext_resource type="Script" uid="uid://v83cerh5fce0" path="res://Scripts/text_blip_sound.gd" id="3_2pem5"]
+[ext_resource type="PackedScene" uid="uid://0ehm6vuy7f1n" path="res://Scenes/PlayerChoices.tscn" id="4_bslck"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ff3o"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.53333336)
+border_width_top = 1
+border_color = Color(0, 0, 0.6901961, 0.56078434)
+
+[sub_resource type="Theme" id="Theme_bslck"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_2ff3o")
+RichTextLabel/font_sizes/normal_font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_wq5ud"]
 font_size = 24
 
 [node name="DialogUI" type="Control" unique_id=1039307889]
 layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("1_6nctd")
 script = ExtResource("2_wq5ud")
 
@@ -30,6 +43,24 @@ wait_time = 0.09
 [node name="TextBlipSound" type="AudioStreamPlayer" parent="." unique_id=757798912]
 unique_name_in_owner = true
 script = ExtResource("3_2pem5")
+
+[node name="ChoicesContainer" type="CenterContainer" parent="." unique_id=579075779]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_bslck")
+
+[node name="ChoicesList" type="VBoxContainer" parent="ChoicesContainer" unique_id=1954058342]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Button" parent="ChoicesContainer/ChoicesList" unique_id=1224888138 instance=ExtResource("4_bslck")]
+visible = false
+layout_mode = 2
 
 [node name="DialogBox" type="PanelContainer" parent="." unique_id=341531014]
 layout_mode = 1
@@ -51,26 +82,30 @@ visible_characters = 30
 visible_ratio = 2.3076923
 
 [node name="SpeakingBox" type="Control" parent="." unique_id=91158961]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_top = -200.0
 offset_right = 200.0
-offset_bottom = -150.0
+offset_bottom = -89.0
+grow_vertical = 0
 
 [node name="SpeakBox" type="Polygon2D" parent="SpeakingBox" unique_id=941182084]
 color = Color(0, 0, 0.6901961, 0.3137255)
-polygon = PackedVector2Array(0, 0, 200, 0, 240, 35, 200, 50, 0, 50)
+polygon = PackedVector2Array(0, 0, 200, 0, 240, 35, 200, 50, 82.06177, 50, 0, 50)
 
 [node name="SpeakerName" type="Label" parent="SpeakingBox" unique_id=533191383]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 25.0
-offset_top = -35.5
-offset_right = 150.0
-offset_bottom = 35.5
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = -10.0
+offset_right = 60.0
+offset_bottom = 61.0
+grow_horizontal = 2
 text = "Name
 "
 label_settings = SubResource("LabelSettings_wq5ud")

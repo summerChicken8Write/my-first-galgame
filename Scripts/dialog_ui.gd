@@ -6,6 +6,10 @@ extends Control
 # 主场景接到该信号后会把角色动画从说话状态切换回待机状态。
 signal text_animation_done
 
+signal choice_selected
+
+const ChoiceButtonScene = preload("res://Scenes/PlayerChoices.tscn")
+
 # 显示角色台词的富文本标签。
 @onready var dialog_line = %DialogLine
 
@@ -20,6 +24,8 @@ signal text_animation_done
 
 # 在遇到逗号、句号等停顿标点时，临时暂停提示音的计时器。
 @onready var sentence_pause_timer = %SentencePauseTimer
+
+@onready var choices_list = %ChoicesList
 
 # 逐字显示动画速度，单位为每秒显示的字符数。
 # 数值越大，台词出现越快。
@@ -43,6 +49,7 @@ var current_character_details: Dictionary
 # Godot 生命周期函数：节点进入场景树后自动调用。
 # 这里只连接两个计时器的超时信号，具体显示内容由主场景调用 change_line 传入。
 func _ready() -> void:
+	choices_list.hide()
 	text_blip_timer.timeout.connect(_on_text_blip_timeout)
 	sentence_pause_timer.timeout.connect(_on_sentence_pause_timeout)
 
@@ -98,6 +105,19 @@ func change_line(character_name: Character.Name, line: String):
 # 玩家在文字尚未显示完时按下推进键，会调用该函数直接显示完整台词。
 func skip_text_animation():
 	dialog_line.visible_ratio = 1
+	
+func display_choices(choices: Array):
+	for choice in choices_list.get_children():
+		choice.queue_free()
+	
+	for choice in choices:
+		var choice_button = ChoiceButtonScene.instantiate()
+		choice_button.text = choice["text"]
+		choice_button.pressed.connect(_on_choice_button_pressed.bind(choice["goto"]))
+		
+		choices_list.add_child(choice_button)
+	
+	choices_list.show()
 
 # 文字提示音计时器超时后播放一次角色提示音。
 # 声音资源由 TextBlipSound 根据当前角色的 gender 字段决定。
@@ -108,3 +128,7 @@ func _on_text_blip_timeout():
 # 这样标点后的空格停顿结束时，后续字符可以继续发出提示音。
 func _on_sentence_pause_timeout():
 	text_blip_timer.start()
+	
+func _on_choice_button_pressed(anchor: String):
+	choice_selected.emit(anchor)
+	choices_list.hide()

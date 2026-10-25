@@ -21,9 +21,10 @@ var dialog_lines: Array = []
 # Godot 生命周期函数：节点进入场景树后自动调用。
 # 这里连接文字动画完成信号，初始化对话索引，并立即显示第一条对话。
 func _ready() -> void:
-	dialog_lines = load_dialog("res://Resources/Story/story.json")
+	dialog_lines = load_dialog("res://Resources/Story/secend_scene.json")
 	
 	dialog_ui.text_animation_done.connect(_on_text_animation_done)
+	dialog_ui.choice_selected.connect(_on_choice_selected)
 	# 每次进入场景都从第一条对话开始，避免复用节点时保留旧进度。
 	dialog_index = 0
 	# 根据初始化后的索引显示第一条对话。
@@ -31,8 +32,10 @@ func _ready() -> void:
 
 # Godot 输入回调：处理玩家推进对话或跳过当前文字动画的请求。
 func _input(event: InputEvent) -> void:
+	var line = dialog_lines[dialog_index]
+	var has_choice = line.has("choices")
 	# "next_line" 是 project.godot 中定义的输入动作，通常绑定到鼠标左键、空格或回车。
-	if event.is_action_pressed("next_line"):
+	if event.is_action_pressed("next_line") and not has_choice:
 		# 如果文字还在逐字显示，第一次按键只负责立刻显示完整文本。
 		if dialog_ui.animate_flag:
 			dialog_ui.skip_text_animation()
@@ -51,12 +54,49 @@ func _input(event: InputEvent) -> void:
 func process_current_line():
 	# 取出当前索引对应的原始对话字符串。
 	var line = dialog_lines[dialog_index]
-	# 将字符串形式的角色名转换成 Character.Name 枚举，供后续类型化函数使用。
-	var character_name = Character.get_enum_from_string(line["speaker"])
-	# 更新对话框中的姓名、台词，并启动逐字显示动画。
-	dialog_ui.change_line(character_name, line["text"])
-	# 切换角色立绘到当前说话者，并播放说话动画。
-	character_sprite.change_character(character_name)
+	
+	if line.has("location"):
+		dialog_index += 1
+		process_current_line()
+		return
+	
+	if line.has("goto"):
+		dialog_index = get_anchor_position(line["goto"])
+		process_current_line()
+		return
+	
+	if line.has("anchor"):
+		dialog_index += 1
+		process_current_line()
+		return
+		
+	if line.has("show_character"):
+		var character_name = Character.get_enum_from_string(line["show_character"])
+		character_sprite.change_character(character_name, false, line.get("expression", ""))
+	elif line.has("speaker"):
+		var character_name = Character.get_enum_from_string(line["speaker"])
+		character_sprite.change_character(character_name, true, line.get("expression", ""))
+		
+	if line.has("choices"):
+		dialog_ui.display_choices(line["choices"])
+	elif line.has("text"):
+		# 将字符串形式的角色名转换成 Character.Name 枚举，供后续类型化函数使用。
+		var speaker_name = Character.get_enum_from_string(line["speaker"])
+		# 更新对话框中的姓名、台词，并启动逐字显示动画。
+		dialog_ui.change_line(speaker_name, line["text"])
+	else:
+		dialog_index += 1
+		process_current_line()
+		return
+
+func get_anchor_position(anchor: String):
+	for i in range(dialog_lines.size()):
+		if dialog_lines[i].has("anchor") and dialog_lines[i]["anchor"] == anchor:
+			return i
+	
+	printerr("Error: 未找到索引", anchor)
+	
+	return null
 
 func load_dialog(file_path: String):
 	if not FileAccess.file_exists(file_path):
@@ -83,3 +123,8 @@ func load_dialog(file_path: String):
 # 此时让当前角色停止说话动画，恢复到待机动画，表示这句话已经显示完毕。
 func _on_text_animation_done():
 	character_sprite.play_idle_animation()
+	
+func _on_choice_selected(anchor: String):
+	dialog_index = get_anchor_position(anchor)
+	process_current_line()
+	next_sentence_sound.play()

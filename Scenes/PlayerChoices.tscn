@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://0ehm6vuy7f1n"]
+
+[ext_resource type="Theme" uid="uid://csjvej1cqpkor" path="res://Themes/ButtonTheme.tres" id="1_km42h"]
+
+[node name="Button" type="Button" unique_id=1224888138]
+custom_minimum_size = Vector2(700, 50)
+theme = ExtResource("1_km42h")
+text = "这是第一个选项"

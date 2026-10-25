@@ -1,0 +1,40 @@
+[
+  { "location": "office", "music": "office_theme" },
+  { "speaker": "Phoenix", "text": "今天我们将演示一些全新的视觉小说特性。" },
+  { "speaker": "Trucy", "text": "我很兴奋能展示我们的表情系统！", "expression": "happy" },
+  { "speaker": "Phoenix", "text": "让我来向你展示表情是如何工作的。", "expression": "confident" },
+  { "speaker": "Phoenix", "text": "我可以在对话中途改变表情……", "expression": "confident" },
+  { "speaker": "Phoenix", "text": "……甚至可以为此大笑！", "expression": "laugh" },
+  { "speaker": "Trucy", "text": "让我也来试试！" },
+  { "speaker": "Trucy", "text": "我可以看起来很自信……", "expression": "confident" },
+  { "speaker": "Trucy", "text": "或者为某事感到高兴……", "expression": "happy" },
+  { "speaker": "Trucy", "text": "或者看起来完全正常！" },
+  { "speaker": "Apollo", "text": "现在我将演示表情如何对未说话的角色生效。" },
+  { "speaker": "Apollo", "text": "看着 Phoenix 对我所说的话做出反应。", "show_character": "Phoenix", "expression": "confident" },
+  { "speaker": "Apollo", "text": "现在 Trucy 会有不同的反应。", "show_character": "Trucy", "expression": "happy" },
+  { "speaker": "Phoenix", "text": "让我们给玩家一个选择吧。", },
+  { "speaker": "Trucy", "text": "好主意！", "expression": "happy" },
+  {
+	"choices": [
+	  { "text": "询问法庭案件", "goto": "court_cases" },
+	  { "text": "询问魔术技巧", "goto": "magic_tricks" }
+	]
+  },
+  { "anchor": "court_cases" },
+  { "speaker": "Apollo", "text": "Phoenix，跟我们说说你最近的法庭案件吧。", "show_character": "Phoenix" },
+  { "speaker": "Phoenix", "text": "嗯， 我刚刚结束了一场相当复杂的谋杀案审判。" },
+  { "speaker": "Phoenix", "text": "正如我所怀疑的那样，被告实际上是无辜的。", "expression": "confident" },
+  { "speaker": "Trucy", "text": "爸爸总是能知道他的委托人什么时候在说真话！", "expression": "confident" },
+  { "goto": "ending" },
+  { "anchor": "magic_tricks" },
+  { "speaker": "Apollo", "text": "Trucy，你能给我们展示一个新魔术吗？", "show_character": "Trucy", "expression": "happy" },
+  { "speaker": "Trucy", "text": "我就知道你会这么问！", "expression": "confident" },
+  { "speaker": "Trucy", "text": "接下来这个魔术， 我需要一名志愿者……", "expression": "happy" },
+  { "speaker": "Phoenix", "text": "你们俩为什么都盯着我看？", "expression": "laugh" },
+  { "goto": "ending" },
+  { "anchor": "ending" },
+  { "speaker": "Phoenix", "text": "我想这就涵盖了所有新特性。" },
+  { "speaker": "Trucy", "text": "别忘了下一个场景的命令！", "expression": "happy" },
+  { "speaker": "Apollo", "text": "对！ 让我们结束这部分的演示。", "show_character": "Phoenix", "expression": "confident" },
+  { "next_scene": "", "transition": "fade" }
+]

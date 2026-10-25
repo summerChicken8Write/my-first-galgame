@@ -18,32 +18,44 @@
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 3.5,
 "texture": ExtResource("1_tmeoa")
+}, {
+"duration": 0.1,
+"texture": ExtResource("2_e4rv2")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_3d2ww")
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_e4rv2")
 }, {
-"duration": 1.0,
-"texture": ExtResource("3_3d2ww")
+"duration": 10.0,
+"texture": ExtResource("1_tmeoa")
 }],
 "loop": 1,
 "name": &"confident_idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.2,
 "texture": ExtResource("4_qvbio")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_ao70x")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_cqhdp")
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_ao70x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_cqhdp")
+"texture": ExtResource("4_qvbio")
 }],
 "loop": 1,
 "name": &"confident_talking",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 3.5,
@@ -74,7 +86,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"laugh_talking",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 0.2,
@@ -94,5 +106,5 @@ animations = [{
 }],
 "loop": 1,
 "name": &"talking",
-"speed": 5.0
+"speed": 7.0
 }]

@@ -28,13 +28,13 @@ const CHARACTER_DETAILS: Dictionary = {
 		"name": "Phoenox",
 		"gender": "male",
 		# Phoenix 的角色动画资源。
-		"sprite_frames": preload("res://Resources/phoenix-sprites.tres")
+		"sprite_frames": preload("res://Resources/phoenix_sprites.tres")
 	},
 	Name.TRUCY: {
 		"name": "Trucy",
 		"gender": "female",
 		# Trucy 的角色动画资源。
-		"sprite_frames": preload("res://Resources/trucy-sprites.tres")
+		"sprite_frames": preload("res://Resources/trucy_sprites.tres")
 	}
 }
 

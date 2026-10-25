@@ -1,0 +1,23 @@
+[
+  { "location": "courtroom", "music": "courtroom _theme" },
+  { "speaker": "Phoenix", "text": "让我们创建一个带有玩家选项的对话吧。" },
+  { "speaker": "Trucy", "text": "好主意！ 给阿波罗一个选择吧！" },
+  { "speaker": "Phoenix", "text": "收到。 轮到你了， 阿波罗。 做个选择吧。" },
+  {
+	"choices": [
+	  { "text": "第一个选项。", "goto": "first_choice" },
+	  { "text": "第二个选项。", "goto": "second_choice" }
+	]
+  },
+  { "anchor": "first_choice" },
+  { "speaker": "Phoenix", "text": "啊， 看来你选择了第一个选项。" },
+  { "speaker": "Trucy", "text": "有意思！" },
+  { "goto": "end" },
+  { "anchor": "second_choice" },
+  { "speaker": "Trucy", "text": "你选了第二个选项， 哈！" },
+  { "speaker": "Phoenix", "text": "非常好。" },
+  { "goto": "end" },
+  { "anchor": "end" },
+  { "speaker": "Phoenix", "text": "我想这就是我们对话的终点了。" },
+  { "next_scene": "second_scene", "transition": "fade" }
+]
