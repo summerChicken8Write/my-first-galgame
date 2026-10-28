@@ -16,7 +16,8 @@ stream = ExtResource("2_y4jh7")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=791955892]
 layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=214775828]
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=214775828]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

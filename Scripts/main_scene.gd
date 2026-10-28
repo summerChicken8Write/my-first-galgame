@@ -2,6 +2,8 @@
 # 负责保存当前对话进度、接收“下一句”输入，并把角色数据分发给对话框和角色立绘。
 extends Node2D
 
+@onready var background = %Background
+
 # 角色立绘节点，用于根据当前说话者切换人物外观和动画。
 @onready var character_sprite = %CharacterSprite
 
@@ -32,7 +34,15 @@ func _ready() -> void:
 
 # Godot 输入回调：处理玩家推进对话或跳过当前文字动画的请求。
 func _input(event: InputEvent) -> void:
+	if dialog_index >= dialog_lines.size() or dialog_index < 0:
+		printerr("Error: dialog_index错误", dialog_index)
+		return
+	
 	var line = dialog_lines[dialog_index]
+	
+	if line.has("next_scene"):
+		return
+		
 	var has_choice = line.has("choices")
 	# "next_line" 是 project.godot 中定义的输入动作，通常绑定到鼠标左键、空格或回车。
 	if event.is_action_pressed("next_line") and not has_choice:
@@ -56,6 +66,8 @@ func process_current_line():
 	var line = dialog_lines[dialog_index]
 	
 	if line.has("location"):
+		var background_file = "res://Assets/images/" + line["location"] + ".png"
+		background.texture = load(background_file)
 		dialog_index += 1
 		process_current_line()
 		return
